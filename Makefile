@@ -1,4 +1,6 @@
-code-quality:
+test:
+	poetry run python -m pytest tests
+cq:
 	poetry run black .
 	poetry run isort .
 	poetry run flake8 .
