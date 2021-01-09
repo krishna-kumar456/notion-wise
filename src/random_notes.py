@@ -1,18 +1,18 @@
-import random
 import os
+import random
 
-from notion.client import NotionClient
 from dotenv import load_dotenv
+from notion.client import NotionClient
 
 load_dotenv()
 
-NOTION_TOKEN = os.getenv('NOTION_TOKEN')
-KL_URL = os.getenv('KL_URL')
-CATALOG_DB_URL = os.getenv('CATALOG_DB_URL')
+NOTION_TOKEN = os.getenv("NOTION_TOKEN")
+KL_URL = os.getenv("KL_URL")
+CATALOG_DB_URL = os.getenv("CATALOG_DB_URL")
 
 
 def get_content():
-    """ Get random note links from Notion.
+    """Get random note links from Notion.
 
     Args:
         token:
@@ -25,7 +25,8 @@ def get_content():
         A dict of knowledge lake and Catalog notes
     """
 
-    # Obtain the `token_v2` value by inspecting your browser cookies on a logged-in (non-guest) session on Notion.so
+    # Obtain the `token_v2` value by inspecting your browser
+    #  cookies on a logged-in (non-guest) session on Notion.so
     client = NotionClient(token_v2=NOTION_TOKEN)
 
     # Replace this URL with the URL of the page you want to edit
@@ -46,13 +47,8 @@ def get_content():
     kh_rand_title, kh_rand_source = random.choice(list(kh_dict.items()))
 
     payload = {
-        'kl': {
-            kl_rand_title : kl_rand_source
-        },
-        'kh': {
-            kh_rand_title : kh_rand_source
-        },
-
+        "kl": {kl_rand_title: kl_rand_source},
+        "kh": {kh_rand_title: kh_rand_source},
     }
 
     return payload
