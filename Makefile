@@ -1,3 +1,6 @@
+dev:
+	poetry run uvicorn src.api:app --log-level=info --reload
+
 test:
 	poetry run python -m pytest tests
 cq:

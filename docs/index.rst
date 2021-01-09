@@ -10,7 +10,7 @@ Welcome to Notion Wise's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-.. automodule:: random_quote_generator
+.. automodule:: src
     :members:
 
 
